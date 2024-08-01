@@ -1,0 +1,241 @@
+@font-face {
+	font-family: 'Whitney';
+	src: url("./fonts/Whitney-Book.otf") format("opentype");
+}
+
+@font-face {
+	font-family: 'Whitney';
+	font-weight: 500;
+	src: url("./fonts/Whitney-Medium.otf") format("opentype");
+}
+
+@font-face {
+	font-family: 'Whitney';
+	font-weight: 600;
+	src: url("./fonts/Whitney-Semibold.otf") format("opentype");
+}
+
+@font-face {
+	font-family: 'Whitney';
+	font-weight: bold;
+	src: url("./fonts/Whitney-Bold.otf") format("opentype");
+}
+
+body {
+	font-family: 'Whitney';
+	-webkit-font-smoothing: antialiased;
+}
+
+
+section.section-1 h1 {
+	color: #002F49;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 36px;
+	font-weight: 600;
+	padding-top: 20px;
+}
+
+section.section-1 h3 {
+	color: #002F49;
+	text-align: center;
+	font-weight: 400;
+	font-size: 20px;
+	font-style: italic;
+}
+
+.title {
+	font-family: 'Whitney';
+	position: relative;
+	max-width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.subtitle {
+	position: relative;
+	max-width: 35%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.scene.is-active p {
+	background-color: none;
+}
+
+.scene p {
+	background-color: none;
+}
+
+.article-wrapper p {
+	font-family: 'Whitney';
+	padding: 0;
+	font-size: 20px;
+	line-height: 28px;
+	color: #333
+}
+
+.article-wrapper {
+	max-width: 800px;
+	margin: auto
+}
+
+.content-wrapper,
+body {
+	position: relative;
+	min-height: 100%
+}
+
+.scroller {
+	position: relative;
+	margin-bottom: 50px
+}
+
+.scroll-graphic {
+	position: -webkit-sticky;
+	position: sticky;
+	height: 100vh;
+	top: 0;
+	padding-top: 150px;
+}
+
+
+/*
+  .scroll-graphic .chart-wrapper .chart {
+  	height: 85vh
+  } */
+
+.scroll-scenes {
+	pointer-events: none
+}
+
+.scene {
+	transform: translateZ(0);
+	min-height: 100vh;
+	transition: opacity .3s ease;
+}
+
+.chart-wrapper {
+	max-width: 920px;
+	margin: 50px auto;
+}
+
+.chart-wrapper .chart {
+	height: 450px;
+	width: 100%;
+	margin-left: -50px;
+}
+
+.article-wrapper.scroller-text {
+	max-width: 450px;
+	margin: auto;
+	padding: 5px 20px;
+	background-color: hsla(0, 0%, 100%, .65);
+	box-shadow: 1px 1px 5px -3px rgba(0, 0, 0, .5);
+	text-align: left;
+}
+
+
+.img-responsive {
+	width: 100%;
+}
+
+#chart1{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#main {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tick line {
+	opacity: 0;
+}
+
+.tick text{
+	font-size: 11.5px;
+	font-family: 'Whitney';
+}
+
+.x-axis,
+.y-axis {
+	font-family: 'Whitney';
+}
+
+/* @media only screen and (min-width:661px) and (max-width:920px) {
+	section.section-1 h1 {
+		font-size: 36px;
+		top: 5vh;
+	}
+	section.section-1 h3 {
+		top: 5vh;
+		font-size: 18px;
+	}
+	.title {
+		max-width: 70%;
+	}
+	.subtitle {
+		max-width: 50%;
+	}
+	.chart-wrapper {
+		max-width: 500px;
+	}
+} */
+
+@media only screen and (max-width:660px) {
+	section.section-1 h1 {
+		font-size: 30px;
+		top: 5vh;
+	}
+	section.section-1 h3 {
+		top: 5vh;
+		font-size: 16px;
+	}
+	.title {
+		max-width: 90%;
+	}
+	.subtitle {
+		max-width: 60%;
+	}
+    .article-wrapper {
+		padding: 0 20px
+	}
+    .article-wrapper.scroller-text {
+		max-width: 90vw
+	}
+    .scene {
+		min-height: 100vh
+	}
+
+	.chart-wrapper .chart {
+		margin-left: 0px;
+	}
+
+	.chart-wrapper {
+		margin: 0px auto;
+	}
+
+	.scroll-graphic{
+		padding-top:50px;
+	}
+}
+
+@media only screen and (max-width:1050px) {
+	.scroll-graphic{
+		width:90%;
+		margin-left:5%;
+	}
+}
+
+@media only screen and (max-width:700px) {
+	.scroll-graphic{
+		width:80%;
+		margin-left:5%;
+	}
+}
