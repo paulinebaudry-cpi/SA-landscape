@@ -186,6 +186,7 @@ function loadJSON(filePath) {
             }
         }
 
+
 const worldmap = loadJSON("./data/land.geojson");
 const SAMap = loadJSON("./data/south-africa.geojson");
 
@@ -339,7 +340,7 @@ gAnnotations
 gAnnotations
     .append("text")
     .attr("class","annotationText")
-    .attr("x", x("NDC by 2030") + x.bandwidth() / 2 + margin.left+30)
+    .attr("x", x("NDC by 2030") + x.bandwidth() / 2 + margin.left+20)
     .attr("y", y(404+131)-3)
     .text("Annual Estimated Needs")
     .style("font-weight",700)
@@ -511,12 +512,13 @@ function handleStepEnter(response) {
               .duration(300)
               .style("opacity", 1)
 
+              changeArea(0)
+              changeBars(0)
+
           d3.select("#text").selectAll("text").style("opacity", 0)
           gAnnotations.selectAll("text").style("opacity", 0)
           gArea.selectAll(".area").style("opacity",0)
 
-              changeArea(0)
-              changeBars(0)
         }
     }
 
@@ -548,10 +550,10 @@ function handleStepEnter(response) {
                     .data(areaData)
                     .join("text")
                     .attr("class","area")
-                    .attr("x",(d,i)=>i===3?xArea(d.year)-10:xArea(d.year))
-                    .attr("y",d=>yArea(d.value)-6)
+                    .attr("x",(d,i)=>i===3?xArea(d.year)-30:xArea(d.year))
+                    .attr("y",d=>yArea(d.value)-20)
                     .text(d=>d.value)
-                    .attr("fill","black")
+                    .attr("fill","#272727")
                     .style("opacity",1)
                     .style("font-weight",700)
 
@@ -563,7 +565,7 @@ function handleStepEnter(response) {
                     .attr("cy",d=>yArea(d.value))
                     .attr("r",5)
                     .text(d=>d.value)
-                    .attr("fill","black")
+                    .attr("fill","#6d4669")
                     .style("opacity",1)
                     .style("font-weight",700)
             })
@@ -589,7 +591,9 @@ function handleStepEnter(response) {
           removeMap()
           changeArea(1)
           gText.selectAll("text.current").style("opacity", 0)
-
+          g.select(".y-axis").style("opacity",0)
+            g.select(".x-axis path").style("opacity",0)
+            g.selectAll(".tick text").style("opacity", 0)
 
         }
     }
@@ -611,11 +615,11 @@ function handleStepEnter(response) {
 
            gArea.selectAll(".area").style("opacity",0)
            gAnnotations.selectAll("text").style("opacity", 0)
-           g.select(".y-axis").style("opacity",0)
-           g.select(".x-axis path").style("opacity",0)
+           //g.select(".y-axis").style("opacity",0)
+           g.select(".x-axis path").style("opacity",1)
            g.selectAll(".tick text").style("opacity", 1)
 
-           //g.selectAll(".tick text").style("opacity", 1)
+
 
 
 
@@ -634,9 +638,9 @@ function handleStepEnter(response) {
           d3.select("#text").selectAll("text.needs2").style("opacity", 0)
           gAnnotations.selectAll("text").style("opacity", 0)
 
-          g.select(".y-axis").style("opacity",0)
-          g.select(".x-axis path").style("opacity",0)
-          g.selectAll(".tick text").style("opacity", 0)
+        //  g.select(".y-axis").style("opacity",0)
+        //  g.select(".x-axis path").style("opacity",0)
+        //  g.selectAll(".tick text").style("opacity", 0)
 
         }
 
@@ -661,8 +665,8 @@ function handleStepEnter(response) {
 
             gImage.select("#sankey").style("opacity", 0)
             gAnnotations.selectAll("text").style("opacity", 1)
-            g.select(".y-axis").style("opacity",0)
-            g.select(".x-axis path").style("opacity",0)
+          //  g.select(".y-axis").style("opacity",0)
+          //  g.select(".x-axis path").style("opacity",0)
             g.selectAll(".tick text").style("opacity", 1)
 
         }
@@ -685,8 +689,8 @@ function handleStepEnter(response) {
           changeBars(1)
           removeMap()
 
-          g.select(".y-axis").style("opacity",0)
-          g.select(".x-axis path").style("opacity",0)
+        //  g.select(".y-axis").style("opacity",0)
+        //  g.select(".x-axis path").style("opacity",0)
 
         }
 
